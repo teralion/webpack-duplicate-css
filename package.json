@@ -5,7 +5,7 @@
   "main": "webpack.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "clear": "rm -R ./public/*",
+    "clear": "rm -R ./build",
     "compile": "npm run clear && webpack --config ./webpack.config.js",
     "start": "node ./server/index.js",
     "heroku-postbuild": "webpack --config ./webpack.config.js"

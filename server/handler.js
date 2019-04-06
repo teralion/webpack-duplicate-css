@@ -15,6 +15,10 @@ function getAssetPath(pathname) {
   return paths.slice(1).join('/');
 }
 
+function isFavicon(pathname) {
+  return pathname.includes('favicon.ico');
+}
+
 function getMime(pathname) {
   return mime.getType(pathname);
 }
@@ -22,7 +26,9 @@ function getMime(pathname) {
 function fileRouter(pathname) {
   if (isAsset(pathname)) {
     const assetPath = getAssetPath(pathname);
-    return path.join(DIR, 'public', assetPath)
+    return path.join(DIR, 'build', assetPath)
+  } else if (isFavicon(pathname)) {
+    return path.join(DIR, 'public', 'favicon.ico');
   } else {
     return path.join(DIR, 'app', 'pages', 'index.html');
   }
