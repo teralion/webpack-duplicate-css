@@ -1,4 +1,6 @@
 const path = require('path');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const MiniCssPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   target: 'web',
@@ -17,12 +19,7 @@ module.exports = {
       {
         test: /\.styl$/,
         use: [
-          {
-            loader: 'style-loader',
-            options: {
-              sourceMap: true
-            },
-          },
+          MiniCssPlugin.loader,
           {
             loader: 'css-loader',
             options: {
@@ -40,7 +37,17 @@ module.exports = {
             },
           },
         ],
-      }
+      },
+    ],
+  },
+  plugins: [
+    new MiniCssPlugin({
+      filename: '[name].css',
+    }),
+  ],
+  optimization: {
+    minimizer: [
+      new OptimizeCssAssetsPlugin({}),
     ],
   },
 };
