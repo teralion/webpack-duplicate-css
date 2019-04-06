@@ -1,0 +1,25 @@
+{
+  "name": "webpack-duplicate-css",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clear": "rm -R ./public/*",
+    "compile": "npm run clear && webpack --config ./webpack.config.js",
+    "start": "node ./server/index.js",
+    "heroku-postbuild": "webpack --config ./webpack.config.js"
+  },
+  "author": "db",
+  "license": "WTFPL",
+  "dependencies": {},
+  "devDependencies": {
+    "css-loader": "^2.1.1",
+    "mime": "^2.4.1",
+    "style-loader": "^0.23.1",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.2",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0"
+  }
+}
