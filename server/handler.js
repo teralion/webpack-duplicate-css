@@ -1,7 +1,7 @@
 const fs = require('fs');
 const url = require('url');
 const path = require('path');
-const mime = require('mime/lite');
+const mime = require('mime');
 
 const DIR = path.resolve(__dirname, '../');
 
@@ -26,11 +26,11 @@ function getMime(pathname) {
 function fileRouter(pathname) {
   if (isAsset(pathname)) {
     const assetPath = getAssetPath(pathname);
-    return path.join(DIR, 'build', assetPath)
+    return path.join(DIR, '/build', assetPath)
   } else if (isFavicon(pathname)) {
-    return path.join(DIR, 'public', 'favicon.ico');
+    return path.join(DIR, '/public', 'favicon.ico');
   } else {
-    return path.join(DIR, 'app', 'pages', 'index.html');
+    return path.join(DIR, '/app', '/pages', 'index.html');
   }
 }
 
