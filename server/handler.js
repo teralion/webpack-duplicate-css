@@ -1,7 +1,7 @@
 const fs = require('fs');
 const url = require('url');
 const path = require('path');
-const mime = require('mime');
+const mime = require('mime/lite');
 
 const DIR = path.resolve(__dirname, '../');
 
